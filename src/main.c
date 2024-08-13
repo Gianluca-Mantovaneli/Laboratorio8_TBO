@@ -4,7 +4,7 @@
 #include "bst.h"
 int main()
 {
-    int N = 1000000; // Number of keys to generate
+    int N = 10000; // Number of keys to generate
 
     for (int i = 0; i < 10; i++)
     {

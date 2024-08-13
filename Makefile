@@ -19,7 +19,7 @@ $(TARGET): $(OBJS)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-run: $(TARGET)
+run: 
 	$(TARGET)
 
 # Cleaning
