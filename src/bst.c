@@ -110,3 +110,29 @@ Node *rotateLeft(Node *node)
     aux->left = node;
     return aux;
 }
+
+Node *insereWithRotation(Node *root, int data)
+{
+    if (root == NULL)
+    {
+        return createNode(data);
+    }
+
+    if (data == root->data)
+    {
+        // Caso os dados já existam, não inserimos o novo nó e liberamos a memória alocada.
+        return root;
+    }
+
+    if (data < root->data)
+    {
+        root->left = insereWithRotation(root->left, data);
+        root = rotateRight(root);
+    }
+    else
+    {
+        root->right = insereWithRotation(root->right, data);
+        root = rotateLeft(root);
+    }
+    return root;
+}

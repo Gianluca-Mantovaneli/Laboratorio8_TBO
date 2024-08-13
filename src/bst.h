@@ -18,5 +18,6 @@ Node *search(Node *root, int data);
 int height(Node *root);
 Node *rotateRight(Node *node);
 Node *rotateLeft(Node *node);
+Node *insereWithRotation(Node *root, int data);
 
 #endif // bst_H
