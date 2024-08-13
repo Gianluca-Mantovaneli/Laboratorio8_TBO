@@ -7,6 +7,7 @@ int main()
 {
     int N = 1000000; // Number of keys to generate
     int M = 10;      // Number of tests
+    double soma = 0;
 
     // Create a new tree
     for (int i = 0; i < M; i++)
@@ -21,13 +22,13 @@ int main()
             root = insert(root, keys[i]);
         }
 
-        // Print the height of the tree
-        printf("Height of the tree: %d\n", height(root));
+        soma += height(root);
 
         // Delete the tree
         deleteTree(root);
         destroyKeys(keys);
     }
+    printf("Average height: %f\n", soma / M);
 
     return 0;
 }
