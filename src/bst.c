@@ -94,3 +94,19 @@ int height(Node *root)
     }
     return rightHeight + 1;
 }
+
+Node *rotateRight(Node *node)
+{
+    Node *aux = node->left;
+    node->left = aux->right;
+    aux->right = node;
+    return aux;
+}
+
+Node *rotateLeft(Node *node)
+{
+    Node *aux = node->right;
+    node->right = aux->left;
+    aux->left = node;
+    return aux;
+}

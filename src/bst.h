@@ -16,5 +16,7 @@ Node *insert(Node *root, int data);
 void deleteTree(Node *root);
 Node *search(Node *root, int data);
 int height(Node *root);
+Node *rotateRight(Node *node);
+Node *rotateLeft(Node *node);
 
 #endif // bst_H
