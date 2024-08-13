@@ -6,7 +6,7 @@
 int main()
 {
     int N = 1000000; // Number of keys to generate
-    int M = 5;       // Number of tests
+    int M = 10;      // Number of tests
 
     // Create a new tree
     for (int i = 0; i < M; i++)

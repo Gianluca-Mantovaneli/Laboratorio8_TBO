@@ -18,13 +18,14 @@ Node *createNode(int data)
 // @return The new root of the tree
 Node *insert(Node *root, int data)
 {
-    Node *newNode = createNode(data);
     if (root == NULL)
     {
-        return newNode;
+        return createNode(data);
     }
+
     if (data == root->data)
     {
+        // Caso os dados já existam, não inserimos o novo nó e liberamos a memória alocada.
         return root;
     }
 
