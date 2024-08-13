@@ -47,6 +47,10 @@ void deleteTree(Node *root)
     free(root);
 }
 
+// @brief Search for a node in the tree
+// @param root The root of the tree
+// @param data The data to be searched
+// @return The node with the data
 Node *search(Node *root, int data)
 {
     Node *aux = root;

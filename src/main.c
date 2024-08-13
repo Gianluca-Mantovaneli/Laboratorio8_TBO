@@ -4,18 +4,27 @@
 #include "bst.h"
 int main()
 {
-    int N = 10000; // Number of keys to generate
+    int N = 100000; // Number of keys to generate
+    int M = 5;      // Number of tests
 
-    for (int i = 0; i < 10; i++)
+    // Generate N random keys
+    int keys[N];
+    for (int i = 0; i < N; i++)
     {
-        Node *root = createNode(rand() % 10000);
-        for (int j = 0; j < N; j++)
+        srand(time(0));
+        keys[i] = rand() % N;
+    }
+    // Create a new tree
+    for (int i = 0; i < M; i++)
+    {
+        Node *root = NULL;
+        for (int i = 0; i < N; i++)
         {
-            srand(time(0));
-            int key = rand() % 10000;
-            root = insert(root, key);
+            root = insert(root, keys[i]);
         }
-        printf("Altura da árvore: %d\n", height(root));
+        // Print the height of the tree
+        printf("Height of the tree: %d\n", height(root));
+        // Delete the tree
         deleteTree(root);
     }
 

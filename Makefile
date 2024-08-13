@@ -21,6 +21,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 run: 
 	$(TARGET)
+run_valgrind:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes $(TARGET)
 
 # Cleaning
 clean:
