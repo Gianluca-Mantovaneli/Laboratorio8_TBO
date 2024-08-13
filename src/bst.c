@@ -23,6 +23,11 @@ Node *insert(Node *root, int data)
     {
         return newNode;
     }
+    if (data == root->data)
+    {
+        return root;
+    }
+
     if (data < root->data)
     {
         root->left = insert(root->left, data);
