@@ -3,25 +3,30 @@
 #include <time.h>
 #include "bst.h"
 #include "keyGen.h"
+
 int main()
 {
-    int N = 1000000; // Number of keys to generate
-    int M = 10;      // Number of tests
-    double soma, soma2 = 0;
+    int N = 1000000;            // Number of keys to generate
+    int M = 10;                 // Number of tests
+    double soma = 0, soma2 = 0; // Inicializa as variáveis
 
-    // Create a new tree
     for (int i = 0; i < M; i++)
     {
         // Generate the keys
         int *keys = generateKeys(N);
+        if (keys == NULL)
+        {
+            fprintf(stderr, "Erro ao gerar chaves.\n");
+            return 1;
+        }
+
         Node *root = createNode(keys[0]);
         Node *root2 = createNode(keys[0]);
 
-        // Insert the keys into the tree
-        for (int i = 0; i < N; i++)
+        for (int j = 1; j < N; j++)
         {
-            root = insert(root, keys[i]);
-            root2 = insereWithRotation(root2, keys[i]);
+            root = insert(root, keys[j]);
+            root2 = insereWithRotation(root2, keys[j]);
         }
 
         soma += height(root);
@@ -32,8 +37,9 @@ int main()
         deleteTree(root2);
         destroyKeys(keys);
     }
-    printf("Average height: %f\n", soma / M);
-    printf("Average height with rotation: %f\n", soma2 / M);
+
+    printf("Average height: %.2f\n", soma / M);
+    printf("Average height with rotation: %.2f\n", soma2 / M);
 
     return 0;
 }
